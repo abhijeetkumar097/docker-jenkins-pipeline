@@ -2,6 +2,8 @@ FROM node:23-alpine
 
 WORKDIR /app
 
+RUN apk add --no-cache curl
+
 COPY package*.json ./
 
 RUN npm install && ls -la node_modules && cat package.json
