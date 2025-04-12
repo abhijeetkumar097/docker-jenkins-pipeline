@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm install && ls -la node_modules && cat package.json
 
 COPY src ./src
 

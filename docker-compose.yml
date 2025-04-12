@@ -9,6 +9,9 @@ services:
       - mongodb
     environment:
       - NODE_ENV=production
+    volumes:
+      - .:/app
+      - app_node_modules:/app/node_modules
     command: node src/db.js # or your entry file
 
   mongodb:
@@ -32,4 +35,6 @@ services:
       ME_CONFIG_BASICAUTH: false
 
 volumes:
-  mongo-data:
+  mongo-data:           # for MongoDB's persistent database
+  app_node_modules:     # for your app's node_modules
+
